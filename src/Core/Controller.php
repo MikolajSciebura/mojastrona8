@@ -10,7 +10,8 @@ abstract class Controller {
         if (file_exists($viewFile)) {
             // Skip layout for admin views if they are meant to be standalone or have their own layout
             if (strpos($name, 'admin/') === 0) {
-                echo '<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></head><body>';
+                $mainCss = asset('assets/css/main.css');
+                echo '<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><link rel="stylesheet" href="'.$mainCss.'"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></head><body>';
                 include $viewFile;
                 echo '</body></html>';
             } else {
@@ -32,6 +33,9 @@ abstract class Controller {
     }
 
     protected function redirect($url) {
+        if (strpos($url, 'http') !== 0) {
+            $url = SITE_URL . $url;
+        }
         header("Location: $url");
         exit;
     }

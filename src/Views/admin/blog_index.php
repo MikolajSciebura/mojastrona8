@@ -3,7 +3,7 @@
     <main class="admin-content">
         <header class="admin-header">
             <h2>Wpisy na <span class="text-neon">Blogu</span></h2>
-            <a href="/admin/blog/dodaj" class="btn btn-primary">Nowy Artykuł</a>
+            <a href="<?= SITE_URL ?>/admin/blog/dodaj" class="btn btn-primary">Nowy Artykuł</a>
         </header>
 
         <div class="admin-table-container">

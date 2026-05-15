@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formData.append('product_id', productId);
 
             try {
-                const response = await fetch('/koszyk/dodaj', {
+                const response = await fetch(SITE_URL + '/koszyk/dodaj', {
                     method: 'POST',
                     body: formData
                 });

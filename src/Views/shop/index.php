@@ -11,9 +11,9 @@
             <aside class="filters">
                 <h3>Kategorie</h3>
                 <ul class="category-list">
-                    <li><a href="/kategoria/komputery-gamingowe">Komputery Gamingowe</a></li>
-                    <li><a href="/kategoria/procesory">Procesory</a></li>
-                    <li><a href="/kategoria/karty-graficzne">Karty Graficzne</a></li>
+                    <li><a href="<?= SITE_URL ?>/kategoria/komputery-gamingowe">Komputery Gamingowe</a></li>
+                    <li><a href="<?= SITE_URL ?>/kategoria/procesory">Procesory</a></li>
+                    <li><a href="<?= SITE_URL ?>/kategoria/karty-graficzne">Karty Graficzne</a></li>
                     <!-- More categories -->
                 </ul>
             </aside>

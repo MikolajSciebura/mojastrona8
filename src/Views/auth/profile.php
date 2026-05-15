@@ -7,10 +7,10 @@
                     <img src="/assets/img/default_avatar.png" alt="Avatar" class="profile-avatar">
                     <h3>Konto Premium</h3>
                     <ul class="profile-menu">
-                        <li><a href="/konto" class="active">Dashboard</a></li>
-                        <li><a href="/konto/zamowienia">Moje Zamówienia</a></li>
-                        <li><a href="/konto/ustawienia">Ustawienia</a></li>
-                        <li><a href="/wyloguj">Wyloguj się</a></li>
+                        <li><a href="<?= SITE_URL ?>/konto" class="active">Dashboard</a></li>
+                        <li><a href="<?= SITE_URL ?>/konto/zamowienia">Moje Zamówienia</a></li>
+                        <li><a href="<?= SITE_URL ?>/konto/ustawienia">Ustawienia</a></li>
+                        <li><a href="<?= SITE_URL ?>/wyloguj">Wyloguj się</a></li>
                     </ul>
                 </div>
             </aside>

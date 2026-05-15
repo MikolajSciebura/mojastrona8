@@ -3,7 +3,7 @@
     <main class="admin-content">
         <header class="admin-header">
             <h2>Zarządzanie <span class="text-neon">Produktami</span></h2>
-            <a href="/admin/produkty/dodaj" class="btn btn-primary">Dodaj Nowy</a>
+            <a href="<?= SITE_URL ?>/admin/produkty/dodaj" class="btn btn-primary">Dodaj Nowy</a>
         </header>
 
         <div class="admin-table-container">
@@ -27,8 +27,8 @@
                         <td><?= number_format($product['price'], 2, ',', ' ') ?> zł</td>
                         <td><?= $product['stock'] ?? 0 ?></td>
                         <td>
-                            <a href="/admin/produkty/edycja/<?= $product['id'] ?>" class="text-neon"><i class="fas fa-edit"></i></a>
-                            <a href="/admin/produkty/usun/<?= $product['id'] ?>" class="text-danger" style="margin-left: 10px;"><i class="fas fa-trash"></i></a>
+                            <a href="<?= SITE_URL ?>/admin/produkty/edycja/<?= $product['id'] ?>" class="text-neon"><i class="fas fa-edit"></i></a>
+                            <a href="<?= SITE_URL ?>/admin/produkty/usun/<?= $product['id'] ?>" class="text-danger" style="margin-left: 10px;"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
