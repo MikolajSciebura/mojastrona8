@@ -12,19 +12,36 @@ abstract class Model {
 
     public function all() {
         if (!$this->db) return [];
-        $stmt = $this->db->query("SELECT * FROM {$this->table}");
-        return $stmt->fetchAll();
+        try {
+            $stmt = $this->db->query("SELECT * FROM {$this->table}");
+            return $stmt ? $stmt->fetchAll() : [];
+        } catch (\PDOException $e) {
+            error_log("DB Error in all(): " . $e->getMessage());
+            return [];
+        }
     }
 
     public function find($id) {
-        $stmt = $this->db->prepare("SELECT * FROM {$this->table} WHERE id = ?");
-        $stmt->execute([$id]);
-        return $stmt->fetch();
+        if (!$this->db) return null;
+        try {
+            $stmt = $this->db->prepare("SELECT * FROM {$this->table} WHERE id = ?");
+            $stmt->execute([$id]);
+            return $stmt->fetch();
+        } catch (\PDOException $e) {
+            error_log("DB Error in find(): " . $e->getMessage());
+            return null;
+        }
     }
 
     public function findBySlug($slug) {
-        $stmt = $this->db->prepare("SELECT * FROM {$this->table} WHERE slug = ?");
-        $stmt->execute([$slug]);
-        return $stmt->fetch();
+        if (!$this->db) return null;
+        try {
+            $stmt = $this->db->prepare("SELECT * FROM {$this->table} WHERE slug = ?");
+            $stmt->execute([$slug]);
+            return $stmt->fetch();
+        } catch (\PDOException $e) {
+            error_log("DB Error in findBySlug(): " . $e->getMessage());
+            return null;
+        }
     }
 }

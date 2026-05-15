@@ -14,7 +14,12 @@ class Database {
             if (!class_exists('PDO')) {
                 throw new \Exception("PDO not installed");
             }
-            $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4";
+
+            if (defined('DB_TYPE') && DB_TYPE === 'sqlite') {
+                $dsn = "sqlite:" . DB_PATH;
+            } else {
+                $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4";
+            }
 
             // Check for required PDO constants and provide defaults if missing (though they shouldn't be if PDO exists)
             $options = [];
@@ -28,7 +33,11 @@ class Database {
                 $options[\PDO::ATTR_EMULATE_PREPARES] = false;
             }
 
-            $this->connection = new \PDO($dsn, DB_USER, DB_PASS, $options);
+            if (defined('DB_TYPE') && DB_TYPE === 'sqlite') {
+                $this->connection = new \PDO($dsn, null, null, $options);
+            } else {
+                $this->connection = new \PDO($dsn, DB_USER, DB_PASS, $options);
+            }
         } catch (\PDOException $e) {
             error_log("Database connection failed: " . $e->getMessage());
             $this->connection = null;

@@ -26,26 +26,24 @@
     <header class="navbar">
         <div class="container">
             <a href="<?= SITE_URL ?>/" class="logo">
-                <span class="text-neon">MS</span>TechPC
+                <div class="logo-icon"><i class="fas fa-microchip"></i></div>
+                <div class="logo-text">MSTech<span class="text-neon">PC</span></div>
             </a>
             <nav class="nav-links">
+                <a href="<?= SITE_URL ?>/">Start</a>
                 <a href="<?= SITE_URL ?>/sklep">Sklep</a>
-                <a href="<?= SITE_URL ?>/konfigurator">Konfigurator</a>
+                <a href="<?= SITE_URL ?>/konfigurator" class="text-neon"><i class="fas fa-magic"></i> Konfigurator PC</a>
                 <a href="<?= SITE_URL ?>/serwis">Serwis</a>
                 <a href="<?= SITE_URL ?>/blog">Blog</a>
-                <a href="<?= SITE_URL ?>/o-nas">O nas</a>
                 <a href="<?= SITE_URL ?>/kontakt">Kontakt</a>
             </nav>
             <div class="nav-actions">
-                <a href="<?= SITE_URL ?>/koszyk" class="cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
+                <a href="<?= SITE_URL ?>/logowanie" title="Konto"><i class="far fa-user"></i></a>
+                <a href="<?= SITE_URL ?>/koszyk" class="cart-icon" title="Koszyk">
+                    <i class="fas fa-shopping-basket"></i>
                     <span class="cart-count">0</span>
                 </a>
-                <?php if (isset($_SESSION['user_id'])): ?>
-                    <a href="<?= SITE_URL ?>/konto" class="btn btn-outline">Mój Profil</a>
-                <?php else: ?>
-                    <a href="<?= SITE_URL ?>/logowanie" class="btn btn-outline">Logowanie</a>
-                <?php endif; ?>
+                <a href="<?= SITE_URL ?>/konfigurator" class="btn btn-primary btn-small">Skonfiguruj PC</a>
             </div>
             <button class="mobile-menu-toggle">
                 <i class="fas fa-bars"></i>

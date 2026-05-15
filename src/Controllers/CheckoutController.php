@@ -31,11 +31,21 @@ class CheckoutController extends Controller {
         );
 
         $_SESSION['last_order_id'] = $orderId;
+
+        // Simulating Payment Gateway Redirect
+        $paymentMethod = $_POST['payment_method'] ?? 'blik';
+
+        if ($paymentMethod === 'blik' || $paymentMethod === 'p24') {
+            // In real app: Redirect to Stripe/Przelewy24
+            // header("Location: https://checkout.stripe.com/...");
+        }
+
         $_SESSION['cart'] = [];
 
         $this->view('shop/success', [
             'title' => 'Dziękujemy za zamówienie!',
-            'order_id' => $orderId
+            'order_id' => $orderId,
+            'payment_method' => $paymentMethod
         ]);
     }
 

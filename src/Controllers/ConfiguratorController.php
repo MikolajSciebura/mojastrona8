@@ -48,4 +48,15 @@ class ConfiguratorController extends Controller {
             $this->json(['success' => true, 'cart_count' => count($_SESSION['cart'])]);
         }
     }
+
+    public function print() {
+        $data = $_GET['data'] ?? null;
+        if (!$data) die("No data provided");
+
+        $config = json_decode(base64_decode($data), true);
+
+        // Skip layout and header/footer for print
+        extract(['config' => $config]);
+        include __DIR__ . "/../Views/configurator/print.php";
+    }
 }

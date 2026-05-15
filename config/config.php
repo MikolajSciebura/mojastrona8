@@ -1,4 +1,6 @@
 <?php
+define('DB_TYPE', 'sqlite');
+define('DB_PATH', __DIR__ . '/../database/mstechpc.sqlite');
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'mstechpc');
 define('DB_USER', 'root');

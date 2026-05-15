@@ -9,25 +9,36 @@
             <table class="admin-table">
                 <thead>
                     <tr>
-                        <th>ID Zlecenia</th>
+                        <th>ID Zgłoszenia</th>
                         <th>Klient</th>
-                        <th>Sprzęt</th>
+                        <th>Urządzenie</th>
                         <th>Status</th>
-                        <th>Ostatnia aktualizacja</th>
                         <th>Akcje</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach ($repairs as $repair): ?>
                     <tr>
-                        <td>#RE7782</td>
-                        <td>Jan Kowalski</td>
-                        <td>Laptop MSI GF63</td>
-                        <td><span class="badge badge-processing">W trakcie naprawy</span></td>
-                        <td>2024-05-15 10:30</td>
+                        <td><strong><?= e($repair['repair_id']) ?></strong></td>
+                        <td><?= e($repair['customer_name']) ?></td>
+                        <td><?= e($repair['device']) ?></td>
+                        <td><span class="badge"><?= e($repair['status']) ?></span></td>
                         <td>
-                            <button class="btn btn-outline btn-sm">Aktualizuj</button>
+                            <form action="<?= SITE_URL ?>/admin/serwis/status" method="POST" style="display: flex; gap: 10px;">
+                                <input type="hidden" name="csrf_token" value="<?= \App\Core\Security::generate_csrf() ?>">
+                                <input type="hidden" name="id" value="<?= $repair['id'] ?>">
+                                <select name="status" class="form-control" style="padding: 5px;">
+                                    <option value="Nowe zgłoszenie">Nowe</option>
+                                    <option value="W trakcie naprawy">W naprawie</option>
+                                    <option value="Czeka na części">Części</option>
+                                    <option value="Gotowe do odbioru">Gotowe</option>
+                                    <option value="Wydano">Wydano</option>
+                                </select>
+                                <button type="submit" class="btn btn-primary btn-sm">Aktualizuj</button>
+                            </form>
                         </td>
                     </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
@@ -35,6 +46,6 @@
 </div>
 
 <style>
-.badge { padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; }
-.badge-processing { background: rgba(0, 242, 255, 0.1); color: var(--neon-blue); border: 1px solid var(--neon-blue); }
+.badge { background: rgba(0, 242, 255, 0.1); color: var(--neon-blue); padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; }
+.btn-sm { padding: 5px 10px; font-size: 0.8rem; }
 </style>

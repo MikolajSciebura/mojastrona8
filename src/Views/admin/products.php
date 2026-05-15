@@ -27,8 +27,8 @@
                         <td><?= number_format($product['price'], 2, ',', ' ') ?> zł</td>
                         <td><?= $product['stock'] ?? 0 ?></td>
                         <td>
-                            <a href="<?= SITE_URL ?>/admin/produkty/edycja/<?= $product['id'] ?>" class="text-neon"><i class="fas fa-edit"></i></a>
-                            <a href="<?= SITE_URL ?>/admin/produkty/usun/<?= $product['id'] ?>" class="text-danger" style="margin-left: 10px;"><i class="fas fa-trash"></i></a>
+                            <a href="<?= SITE_URL ?>/admin/produkty/edytuj/<?= $product['id'] ?>" class="text-neon"><i class="fas fa-edit"></i></a>
+                            <a href="<?= SITE_URL ?>/admin/produkty/usun/<?= $product['id'] ?>" class="text-danger" style="margin-left: 10px;" onclick="return confirm('Czy na pewno chcesz usunąć ten produkt?')"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                     <?php endforeach; ?>

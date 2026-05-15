@@ -20,18 +20,54 @@ class Product extends Model {
 
     public function create($data) {
         if (!$this->db) return true;
-        $sql = "INSERT INTO products (name, slug, price, category_id, stock, description, image, is_pc) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $this->db->prepare($sql);
-        return $stmt->execute([
-            $data['name'],
-            $this->slugify($data['name']),
-            $data['price'],
-            $data['category_id'],
-            $data['stock'],
-            $data['description'],
-            $data['image'] ?? 'placeholder.png',
-            $data['is_pc'] ?? 0
-        ]);
+        try {
+            $sql = "INSERT INTO products (name, slug, price, category_id, stock, description, image, is_pc) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $this->db->prepare($sql);
+            return $stmt->execute([
+                $data['name'],
+                $this->slugify($data['name']),
+                $data['price'],
+                $data['category_id'],
+                $data['stock'],
+                $data['description'],
+                $data['image'] ?? 'placeholder.png',
+                $data['is_pc'] ?? 0
+            ]);
+        } catch (\PDOException $e) {
+            error_log("DB Error in create(): " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function update($id, $data) {
+        if (!$this->db) return true;
+        try {
+            $sql = "UPDATE products SET name = ?, price = ?, category_id = ?, stock = ?, description = ?, is_pc = ? WHERE id = ?";
+            $stmt = $this->db->prepare($sql);
+            return $stmt->execute([
+                $data['name'],
+                $data['price'],
+                $data['category_id'],
+                $data['stock'],
+                $data['description'],
+                $data['is_pc'],
+                $id
+            ]);
+        } catch (\PDOException $e) {
+            error_log("DB Error in update(): " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function delete($id) {
+        if (!$this->db) return true;
+        try {
+            $stmt = $this->db->prepare("DELETE FROM products WHERE id = ?");
+            return $stmt->execute([$id]);
+        } catch (\PDOException $e) {
+            error_log("DB Error in delete(): " . $e->getMessage());
+            return false;
+        }
     }
 
     private function slugify($text) {

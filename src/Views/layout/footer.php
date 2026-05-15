@@ -1,44 +1,21 @@
     </main>
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-info">
-                    <a href="<?= SITE_URL ?>/" class="logo"><span class="text-neon">MS</span>TechPC</a>
-                    <p>Twój partner w świecie technologii. Budujemy komputery marzeń dla graczy i profesjonalistów.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+        <div class="container text-center">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <i class="fas fa-map-marker-alt text-neon" style="font-size: 2rem;"></i>
+                    <h2 class="section-title mt-3">Lokalnie. <span class="text-neon">Częstochowa & Kłobuck.</span></h2>
+                    <p class="mt-4" style="max-width: 600px; margin: 0 auto; color: var(--text-muted);">
+                        Naprawa komputera, laptopa lub konsoli? Przyjmujemy sprzęt osobiście, oferujemy dojazd do firm i wysyłkę kurierem z całej Polski.
+                    </p>
+                    <div class="flex justify-center gap-4 mt-8">
+                        <a href="<?= SITE_URL ?>/serwis" class="btn btn-primary"><i class="fas fa-tools"></i> Zgłoś naprawę</a>
+                        <a href="<?= SITE_URL ?>/kontakt" class="btn btn-outline">Kontakt</a>
                     </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Sklep</h4>
-                    <ul>
-                        <li><a href="<?= SITE_URL ?>/kategoria/komputery-gamingowe">Komputery Gamingowe</a></li>
-                        <li><a href="<?= SITE_URL ?>/kategoria/laptopy">Laptopy</a></li>
-                        <li><a href="<?= SITE_URL ?>/konfigurator">Konfigurator PC</a></li>
-                        <li><a href="<?= SITE_URL ?>/serwis">Serwis i Naprawa</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Informacje</h4>
-                    <ul>
-                        <li><a href="<?= SITE_URL ?>/o-nas">O nas</a></li>
-                        <li><a href="<?= SITE_URL ?>/blog">Blog Technologiczny</a></li>
-                        <li><a href="<?= SITE_URL ?>/regulamin">Regulamin</a></li>
-                        <li><a href="<?= SITE_URL ?>/polityka-prywatnosci">Polityka Prywatności</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Kontakt</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> Al. Najświętszej Maryi Panny, Częstochowa</p>
-                    <p><i class="fas fa-phone"></i> +48 123 456 789</p>
-                    <p><i class="fas fa-envelope"></i> kontakt@mstechpc.pl</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <?= date('Y') ?> MSTechPC. Wszystkie prawa zastrzeżone.</p>
+                <p>&copy; <?= date('Y') ?> MSTechPC - Profesjonalny Serwis i Sklep Komputerowy. Realizacja Premium.</p>
             </div>
         </div>
     </footer>
