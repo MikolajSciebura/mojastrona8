@@ -8,7 +8,7 @@
                 <div class="alert alert-danger"><?= $error ?></div>
             <?php endif; ?>
 
-            <form action="/logowanie" method="POST" class="auth-form">
+            <form action="<?= SITE_URL ?>/logowanie" method="POST" class="auth-form">
                 <input type="hidden" name="csrf_token" value="<?= \App\Core\Security::csrf_token() ?>">
                 <div class="form-group">
                     <label>Email</label>
@@ -21,7 +21,7 @@
                 <button type="submit" class="btn btn-primary btn-block">Zaloguj się</button>
             </form>
             <div class="auth-footer">
-                Nie masz konta? <a href="/rejestracja" class="text-neon">Zarejestruj się</a>
+                Nie masz konta? <a href="<?= SITE_URL ?>/rejestracja" class="text-neon">Zarejestruj się</a>
             </div>
         </div>
     </div>

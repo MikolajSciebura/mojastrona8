@@ -21,16 +21,16 @@
                 <?php foreach ($products as $product): ?>
                     <div class="product-card" data-aos="fade-up">
                         <div class="product-img">
-                            <img src="/assets/img/products/<?= $product['image'] ?? 'placeholder.png' ?>" alt="<?= $product['name'] ?>">
+                            <img src="<?= asset('assets/img/products/' . ($product['image'] ?? 'placeholder.png')) ?>" alt="<?= e($product['name']) ?>">
                             <?php if ($product['is_pc']): ?>
                                 <span class="badge">GOTOWY PC</span>
                             <?php endif; ?>
                         </div>
                         <div class="product-info">
-                            <h3><?= $product['name'] ?></h3>
+                        <h3><?= e($product['name']) ?></h3>
                             <div class="price"><?= number_format($product['price'], 2, ',', ' ') ?> zł</div>
                             <div class="product-actions">
-                                <a href="/produkt/<?= $product['slug'] ?>" class="btn btn-outline btn-sm">Szczegóły</a>
+                            <a href="<?= SITE_URL ?>/produkt/<?= $product['slug'] ?>" class="btn btn-outline btn-sm">Szczegóły</a>
                                 <button class="btn btn-primary btn-sm add-to-cart" data-id="<?= $product['id'] ?>">
                                     <i class="fas fa-shopping-cart"></i>
                                 </button>

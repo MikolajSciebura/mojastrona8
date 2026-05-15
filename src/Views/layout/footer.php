@@ -3,7 +3,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-info">
-                    <a href="/" class="logo"><span class="text-neon">MS</span>TechPC</a>
+                    <a href="<?= SITE_URL ?>/" class="logo"><span class="text-neon">MS</span>TechPC</a>
                     <p>Twój partner w świecie technologii. Budujemy komputery marzeń dla graczy i profesjonalistów.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -15,19 +15,19 @@
                 <div class="footer-links">
                     <h4>Sklep</h4>
                     <ul>
-                        <li><a href="/kategoria/komputery-gamingowe">Komputery Gamingowe</a></li>
-                        <li><a href="/kategoria/laptopy">Laptopy</a></li>
-                        <li><a href="/konfigurator">Konfigurator PC</a></li>
-                        <li><a href="/serwis">Serwis i Naprawa</a></li>
+                        <li><a href="<?= SITE_URL ?>/kategoria/komputery-gamingowe">Komputery Gamingowe</a></li>
+                        <li><a href="<?= SITE_URL ?>/kategoria/laptopy">Laptopy</a></li>
+                        <li><a href="<?= SITE_URL ?>/konfigurator">Konfigurator PC</a></li>
+                        <li><a href="<?= SITE_URL ?>/serwis">Serwis i Naprawa</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Informacje</h4>
                     <ul>
-                        <li><a href="/o-nas">O nas</a></li>
-                        <li><a href="/blog">Blog Technologiczny</a></li>
-                        <li><a href="/regulamin">Regulamin</a></li>
-                        <li><a href="/polityka-prywatnosci">Polityka Prywatności</a></li>
+                        <li><a href="<?= SITE_URL ?>/o-nas">O nas</a></li>
+                        <li><a href="<?= SITE_URL ?>/blog">Blog Technologiczny</a></li>
+                        <li><a href="<?= SITE_URL ?>/regulamin">Regulamin</a></li>
+                        <li><a href="<?= SITE_URL ?>/polityka-prywatnosci">Polityka Prywatności</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -47,7 +47,7 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="<?= SITE_URL ?>/assets/js/main.js"></script>
+    <script src="<?= asset('assets/js/main.js') ?>"></script>
     <script>
         AOS.init({
             duration: 800,

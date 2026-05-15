@@ -6,7 +6,7 @@
             <div class="empty-cart" data-aos="fade-up">
                 <i class="fas fa-shopping-basket"></i>
                 <p>Twój koszyk jest pusty.</p>
-                <a href="/sklep" class="btn btn-primary">Wróć do sklepu</a>
+                <a href="<?= SITE_URL ?>/sklep" class="btn btn-primary">Wróć do sklepu</a>
             </div>
         <?php else: ?>
             <div class="cart-grid">
@@ -17,9 +17,9 @@
                         $total += $item['price'] * $item['quantity'];
                     ?>
                         <div class="cart-item">
-                            <img src="/assets/img/products/<?= $item['image'] ?? 'placeholder.png' ?>" alt="<?= $item['name'] ?>">
+                            <img src="<?= asset('assets/img/products/' . ($item['image'] ?? 'placeholder.png')) ?>" alt="<?= e($item['name']) ?>">
                             <div class="item-info">
-                                <h3><?= $item['name'] ?></h3>
+                                <h3><?= e($item['name']) ?></h3>
                                 <div class="item-price"><?= number_format($item['price'], 2, ',', ' ') ?> zł</div>
                             </div>
                             <div class="item-quantity">
@@ -44,7 +44,7 @@
                             <span>Razem:</span>
                             <span><?= number_format($total, 2, ',', ' ') ?> zł</span>
                         </div>
-                        <a href="/checkout" class="btn btn-primary btn-block">Przejdź do płatności</a>
+                        <a href="<?= SITE_URL ?>/checkout" class="btn btn-primary btn-block">Przejdź do płatności</a>
                     </div>
                 </aside>
             </div>

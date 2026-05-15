@@ -22,8 +22,8 @@
                     <?php foreach ($products as $product): ?>
                     <tr>
                         <td>#<?= $product['id'] ?></td>
-                        <td><img src="/assets/img/products/<?= $product['image'] ?? 'placeholder.png' ?>" width="50"></td>
-                        <td><?= $product['name'] ?></td>
+                        <td><img src="<?= asset('assets/img/products/' . ($product['image'] ?? 'placeholder.png')) ?>" width="50"></td>
+                        <td><?= e($product['name']) ?></td>
                         <td><?= number_format($product['price'], 2, ',', ' ') ?> zł</td>
                         <td><?= $product['stock'] ?? 0 ?></td>
                         <td>

@@ -2,13 +2,13 @@
     <div class="container">
         <div class="product-header">
             <div class="product-gallery" data-aos="fade-right">
-                <img src="/assets/img/products/<?= $product['image'] ?? 'placeholder.png' ?>" alt="<?= $product['name'] ?>">
+                <img src="<?= asset('assets/img/products/' . ($product['image'] ?? 'placeholder.png')) ?>" alt="<?= e($product['name']) ?>">
             </div>
             <div class="product-main-info" data-aos="fade-left">
                 <nav class="breadcrumbs">
-                    <a href="/sklep">Sklep</a> / <span><?= $product['name'] ?></span>
+                    <a href="<?= SITE_URL ?>/sklep">Sklep</a> / <span><?= e($product['name']) ?></span>
                 </nav>
-                <h1><?= $product['name'] ?></h1>
+                <h1><?= e($product['name']) ?></h1>
                 <div class="price-tag"><?= number_format($product['price'], 2, ',', ' ') ?> zł</div>
                 <p class="stock-status">Dostępność: <span class="text-neon"><?= $product['stock'] > 0 ? 'W magazynie' : 'Na zamówienie' ?></span></p>
                 <div class="product-actions">
@@ -20,7 +20,7 @@
         <div class="product-description" data-aos="fade-up">
             <h2>Opis produktu</h2>
             <div class="content">
-                <?= nl2br($product['description'] ?? 'Brak opisu.') ?>
+                <?= nl2br(e($product['description'] ?? 'Brak opisu.')) ?>
             </div>
         </div>
     </div>

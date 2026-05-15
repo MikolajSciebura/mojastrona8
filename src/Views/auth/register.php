@@ -4,7 +4,7 @@
             <h2>Dołącz do <span class="text-neon">MSTechPC</span></h2>
             <p>Zyskaj dostęp do historii zamówień i ekskluzywnych ofert.</p>
 
-            <form action="/rejestracja" method="POST" class="auth-form">
+            <form action="<?= SITE_URL ?>/rejestracja" method="POST" class="auth-form">
                 <input type="hidden" name="csrf_token" value="<?= \App\Core\Security::csrf_token() ?>">
                 <div class="form-row">
                     <div class="form-group">
@@ -27,7 +27,7 @@
                 <button type="submit" class="btn btn-primary btn-block">Zarejestruj się</button>
             </form>
             <div class="auth-footer">
-                Masz już konto? <a href="/logowanie" class="text-neon">Zaloguj się</a>
+                Masz już konto? <a href="<?= SITE_URL ?>/logowanie" class="text-neon">Zaloguj się</a>
             </div>
         </div>
     </div>

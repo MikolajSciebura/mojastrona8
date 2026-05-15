@@ -18,6 +18,7 @@ spl_autoload_register(function ($class) {
 });
 
 require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/../src/Core/Helpers.php';
 
 use App\Core\Router;
 

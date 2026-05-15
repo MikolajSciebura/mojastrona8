@@ -4,12 +4,12 @@
             <h1 class="hero-title">Zdefiniuj Nową Erę <span class="text-neon">Wydajności</span></h1>
             <p class="hero-subtitle">Tworzymy ekstremalne maszyny gamingowe i profesjonalne stacje robocze, które przekraczają granice możliwości.</p>
             <div class="hero-btns">
-                <a href="/sklep" class="btn btn-primary">Zobacz Komputery</a>
-                <a href="/konfigurator" class="btn btn-outline">Zbuduj Własny PC</a>
+                <a href="<?= SITE_URL ?>/sklep" class="btn btn-primary">Zobacz Komputery</a>
+                <a href="<?= SITE_URL ?>/konfigurator" class="btn btn-outline">Zbuduj Własny PC</a>
             </div>
         </div>
         <div class="hero-image" data-aos="fade-left">
-            <img src="/assets/img/hero-pc.png" alt="Premium Gaming PC">
+            <img src="<?= asset('assets/img/hero-pc.png') ?>" alt="Premium Gaming PC">
             <div class="glass-card floating">
                 <div class="card-stat">
                     <span class="stat-value">300+</span>

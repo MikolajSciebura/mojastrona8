@@ -15,22 +15,31 @@ class Router {
     }
 
     public function dispatch($method, $uri) {
-        $uri = explode('?', $uri)[0];
+        $path = parse_url($uri, PHP_URL_PATH);
 
         // Handle subdirectory installations (like XAMPP)
-        $scriptName = dirname($_SERVER['SCRIPT_NAME']);
-        if ($scriptName !== '/') {
-            $uri = str_replace($scriptName, '', $uri);
+        $scriptPath = $_SERVER['SCRIPT_NAME'];
+        $baseDir = str_replace('\\', '/', dirname($scriptPath));
+
+        // If project is in a subfolder and accessed via root .htaccess
+        $projectBase = str_replace('/public', '', $baseDir);
+
+        if ($baseDir !== '/' && strpos($path, $baseDir) === 0) {
+            $path = substr($path, strlen($baseDir));
+        } elseif ($projectBase !== '/' && strpos($path, $projectBase) === 0) {
+            $path = substr($path, strlen($projectBase));
         }
-        if ($uri === '') $uri = '/';
+
+        if (empty($path)) $path = '/';
+        if ($path[0] !== '/') $path = '/' . $path;
 
         foreach ($this->routes as $route) {
-            if ($route['method'] === $method && preg_match($route['path'], $uri, $matches)) {
+            if ($route['method'] === $method && preg_match($route['path'], $path, $matches)) {
                 return $this->executeHandler($route['handler'], $matches);
             }
         }
         http_response_code(404);
-        echo "404 Not Found";
+        echo "404 Not Found - URI: " . htmlspecialchars($path);
     }
 
     protected function executeHandler($handler, $matches) {

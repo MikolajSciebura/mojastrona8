@@ -6,9 +6,9 @@
             <p>Twoje zamówienie <strong>#<?= $order_id ?? 'ORD-'.time() ?></strong> zostało przyjęte do realizacji.</p>
             <p>Potwierdzenie wysłaliśmy na Twój adres e-mail.</p>
             <div class="success-actions">
-                <a href="/faktura" class="btn btn-outline">Pobierz Fakturę</a>
-                <a href="/konto" class="btn btn-primary">Moje konto</a>
-                <a href="/" class="btn btn-outline">Strona główna</a>
+                <a href="<?= SITE_URL ?>/faktura" class="btn btn-outline">Pobierz Fakturę</a>
+                <a href="<?= SITE_URL ?>/konto" class="btn btn-primary">Moje konto</a>
+                <a href="<?= SITE_URL ?>/" class="btn btn-outline">Strona główna</a>
             </div>
         </div>
     </div>

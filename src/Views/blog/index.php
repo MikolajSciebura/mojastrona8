@@ -10,13 +10,13 @@
         <div class="blog-grid">
             <article class="blog-card" data-aos="fade-up">
                 <div class="blog-img">
-                    <img src="/assets/img/blog-1.jpg" alt="RTX 5090 News">
+                    <img src="<?= asset('assets/img/blog-1.jpg') ?>" alt="RTX 5090 News">
                 </div>
                 <div class="blog-body">
                     <span class="blog-date">12.05.2024</span>
                     <h3>Nadchodzi RTX 5090 - czego możemy się spodziewać?</h3>
                     <p>Analizujemy najnowsze przecieki dotyczące nowej generacji kart od NVIDIA...</p>
-                    <a href="/blog/rtx-5090-news" class="text-neon">Czytaj więcej →</a>
+                    <a href="<?= SITE_URL ?>/blog/rtx-5090-news" class="text-neon">Czytaj więcej →</a>
                 </div>
             </article>
             <!-- More blog posts -->

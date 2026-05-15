@@ -1,7 +1,7 @@
 <section class="checkout-section">
     <div class="container">
         <h1>Finalizacja <span class="text-neon">Zamówienia</span></h1>
-        <form action="/checkout/proces" method="POST" class="checkout-form">
+        <form action="<?= SITE_URL ?>/checkout/proces" method="POST" class="checkout-form">
             <input type="hidden" name="csrf_token" value="<?= \App\Core\Security::csrf_token() ?>">
             <div class="checkout-grid">
                 <div class="billing-details">
@@ -36,7 +36,7 @@
                         <h3>Twoje zamówienie</h3>
                         <?php foreach ($cart as $item): ?>
                             <div class="review-item">
-                                <span><?= $item['name'] ?> (x<?= $item['quantity'] ?>)</span>
+                                <span><?= e($item['name']) ?> (x<?= e($item['quantity']) ?>)</span>
                                 <span><?= number_format($item['price'] * $item['quantity'], 2, ',', ' ') ?> zł</span>
                             </div>
                         <?php endforeach; ?>
