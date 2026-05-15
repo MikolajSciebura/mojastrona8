@@ -197,13 +197,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Simplification for the demo
         formData.append('config[parts]', JSON.stringify(partsData));
 
-        const response = await fetch('/konfigurator/zapisz', {
+        const response = await fetch(SITE_URL + '/konfigurator/zapisz', {
             method: 'POST',
             body: formData
         });
         const result = await response.json();
         if (result.success) {
-            window.location.href = '/koszyk';
+            window.location.href = SITE_URL + '/koszyk';
         }
     });
 });

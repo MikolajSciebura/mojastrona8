@@ -5,7 +5,7 @@
             <h2>Dodaj Nowy <span class="text-neon">Produkt</span></h2>
         </header>
 
-        <form action="/admin/produkty/dodaj" method="POST" class="admin-form">
+        <form action="<?= SITE_URL ?>/admin/produkty/dodaj" method="POST" class="admin-form">
             <input type="hidden" name="csrf_token" value="<?= \App\Core\Security::csrf_token() ?>">
             <div class="form-grid">
                 <div class="form-group">

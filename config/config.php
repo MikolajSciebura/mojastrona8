@@ -9,8 +9,10 @@ $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "
 $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
 $script = $_SERVER['SCRIPT_NAME'] ?? '';
 $dir = str_replace('\\', '/', dirname($script));
-$dir = str_replace('/public', '', $dir);
-if ($dir === '/') $dir = '';
+if (substr($dir, -7) === '/public') {
+    $dir = substr($dir, 0, -7);
+}
+$dir = rtrim($dir, '/');
 define('SITE_URL', $protocol . "://" . $host . $dir);
 
 define('SITE_NAME', 'MSTechPC');

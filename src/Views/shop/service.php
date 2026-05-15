@@ -7,7 +7,7 @@
 
         <div class="repair-status-box" data-aos="fade-up">
             <h3>Sprawdź status naprawy</h3>
-            <form action="/serwis/status" method="GET" class="status-form">
+            <form action="<?= SITE_URL ?>/serwis/status" method="GET" class="status-form">
                 <input type="text" name="repair_id" placeholder="Numer zgłoszenia (np. RE7782)" required>
                 <button type="submit" class="btn btn-primary">Sprawdź</button>
             </form>

@@ -18,20 +18,26 @@ class Router {
         $path = parse_url($uri, PHP_URL_PATH);
 
         // Handle subdirectory installations (like XAMPP)
-        $scriptPath = $_SERVER['SCRIPT_NAME'];
-        $baseDir = str_replace('\\', '/', dirname($scriptPath));
+        $scriptName = $_SERVER['SCRIPT_NAME']; // e.g. /mstechpc/public/index.php or /mstechpc/index.php
+        $scriptDir = str_replace('\\', '/', dirname($scriptName)); // e.g. /mstechpc/public or /mstechpc
 
-        // If project is in a subfolder and accessed via root .htaccess
-        $projectBase = str_replace('/public', '', $baseDir);
-
-        if ($baseDir !== '/' && strpos($path, $baseDir) === 0) {
-            $path = substr($path, strlen($baseDir));
-        } elseif ($projectBase !== '/' && strpos($path, $projectBase) === 0) {
-            $path = substr($path, strlen($projectBase));
+        // Try to determine the project root relative to the server root
+        // If accessed via the root .htaccess, scriptDir might be the project root.
+        // If accessed via public/index.php directly, scriptDir ends in /public.
+        $projectRoot = $scriptDir;
+        if (substr($projectRoot, -7) === '/public') {
+            $projectRoot = substr($projectRoot, 0, -7);
         }
 
+        // Remove the project root from the path to get the relative route
+        if ($projectRoot !== '/' && $projectRoot !== '' && strpos($path, $projectRoot) === 0) {
+            $path = substr($path, strlen($projectRoot));
+        }
+
+        // Standardize path
         if (empty($path)) $path = '/';
-        if ($path[0] !== '/') $path = '/' . $path;
+        $path = rtrim($path, '/');
+        if (empty($path)) $path = '/';
 
         foreach ($this->routes as $route) {
             if ($route['method'] === $method && preg_match($route['path'], $path, $matches)) {

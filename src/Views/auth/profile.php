@@ -4,7 +4,7 @@
         <div class="profile-grid">
             <aside class="profile-sidebar">
                 <div class="profile-card">
-                    <img src="/assets/img/default_avatar.png" alt="Avatar" class="profile-avatar">
+                    <img src="<?= asset("assets/img/default_avatar.png") ?>" alt="Avatar" class="profile-avatar">
                     <h3>Konto Premium</h3>
                     <ul class="profile-menu">
                         <li><a href="<?= SITE_URL ?>/konto" class="active">Dashboard</a></li>

@@ -1,0 +1,11 @@
+[Fri May 15 13:59:30 2026] PHP 8.3.6 Development Server (http://localhost:8000) started
+[Fri May 15 13:59:36 2026] [::1]:36286 Accepted
+[Fri May 15 13:59:36 2026] [::1]:36286 Closing
+[Fri May 15 13:59:36 2026] [::1]:36296 Accepted
+[Fri May 15 13:59:36 2026] [::1]:36304 Accepted
+[Fri May 15 13:59:36 2026] [::1]:36296 [200]: GET /public/assets/css/main.css
+[Fri May 15 13:59:36 2026] [::1]:36304 Closing
+[Fri May 15 13:59:36 2026] [::1]:36296 Closing
+[Fri May 15 13:59:36 2026] [::1]:57570 Accepted
+[Fri May 15 13:59:36 2026] [::1]:57570 [200]: GET /public/assets/js/main.js
+[Fri May 15 13:59:36 2026] [::1]:57570 Closing

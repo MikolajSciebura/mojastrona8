@@ -29,6 +29,7 @@ $router->add('GET', '/', 'HomeController@index');
 $router->add('GET', '/logowanie', 'AuthController@showLogin');
 $router->add('POST', '/logowanie', 'AuthController@login');
 $router->add('GET', '/rejestracja', 'AuthController@showRegister');
+$router->add('POST', '/rejestracja', 'AuthController@register');
 $router->add('GET', '/wyloguj', 'AuthController@logout');
 $router->add('GET', '/konto', 'UserController@profile');
 
