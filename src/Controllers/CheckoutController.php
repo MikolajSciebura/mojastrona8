@@ -33,7 +33,7 @@ class CheckoutController extends Controller {
         $_SESSION['last_order_id'] = $orderId;
 
         // Simulating Payment Gateway Redirect
-        $paymentMethod = $_POST['payment_method'] ?? 'blik';
+        $paymentMethod = $_POST['payment'] ?? 'blik';
 
         if ($paymentMethod === 'blik' || $paymentMethod === 'p24') {
             // In real app: Redirect to Stripe/Przelewy24

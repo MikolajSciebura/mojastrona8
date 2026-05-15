@@ -5,8 +5,7 @@ CREATE TABLE IF NOT EXISTS users (
     username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
+    full_name VARCHAR(100),
     avatar VARCHAR(255) DEFAULT 'default_avatar.png',
     role ENUM('user', 'admin', 'technician') DEFAULT 'user',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -121,5 +120,5 @@ INSERT INTO products (category_id, name, slug, description, price, stock, is_pc)
 (4, 'NVIDIA GeForce RTX 4070 Ti Super', 'nvidia-rtx-4070-ti-super', 'Wydajna karta graficzna', 3899.00, 8, FALSE);
 
 -- Default Admin Account (Email: admin@mstechpc.pl, Password: admin123)
-INSERT INTO users (username, email, password, first_name, last_name, role) VALUES
-('admin', 'admin@mstechpc.pl', '$2y$10$ahyXo1ul/T9wdT9T9UrTx.GOsOTCF6dgxWYfbkAM4bMZsWpECmv46', 'Główny', 'Admin', 'admin');
+INSERT INTO users (username, email, password, full_name, role) VALUES
+('admin', 'admin@mstechpc.pl', '$2y$10$ahyXo1ul/T9wdT9T9UrTx.GOsOTCF6dgxWYfbkAM4bMZsWpECmv46', 'Administrator Główny', 'admin');

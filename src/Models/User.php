@@ -8,14 +8,14 @@ class User extends Model {
     protected $table = 'users';
 
     public function create($data) {
-        $sql = "INSERT INTO users (username, email, password, first_name, last_name) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO users (username, email, password, full_name, role) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($sql);
         return $stmt->execute([
             $data['username'],
             $data['email'],
             password_hash($data['password'], PASSWORD_DEFAULT),
-            $data['first_name'] ?? null,
-            $data['last_name'] ?? null
+            $data['full_name'] ?? null,
+            $data['role'] ?? 'user'
         ]);
     }
 

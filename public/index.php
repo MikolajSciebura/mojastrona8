@@ -26,6 +26,9 @@ $router = new Router();
 
 // Define routes
 $router->add('GET', '/', 'HomeController@index');
+$router->add('GET', '/polityka-prywatnosci', 'HomeController@privacy');
+$router->add('GET', '/regulamin', 'HomeController@terms');
+$router->add('GET', '/rodo', 'HomeController@rodo');
 $router->add('GET', '/logowanie', 'AuthController@showLogin');
 $router->add('POST', '/logowanie', 'AuthController@login');
 $router->add('GET', '/rejestracja', 'AuthController@showRegister');
@@ -45,6 +48,10 @@ $router->add('POST', '/koszyk/dodaj', 'CartController@add');
 $router->add('GET', '/checkout', 'CheckoutController@index');
 $router->add('POST', '/checkout/proces', 'CheckoutController@process');
 $router->add('GET', '/faktura', 'CheckoutController@invoice');
+
+// SEO Routes
+$router->add('GET', '/sitemap.xml', 'SEOController@sitemap');
+$router->add('GET', '/robots.txt', 'SEOController@robots');
 
 $router->add('GET', '/admin', 'AdminController@dashboard');
 $router->add('GET', '/admin/produkty', 'AdminController@products');

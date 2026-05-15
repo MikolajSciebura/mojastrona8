@@ -9,7 +9,7 @@
 
             <div class="admin-card">
                 <form action="<?= SITE_URL ?>/admin/produkty/update/<?= $product['id'] ?>" method="POST">
-                    <input type="hidden" name="csrf_token" value="<?= \App\Core\Security::generate_csrf() ?>">
+                    <input type="hidden" name="csrf_token" value="<?= \App\Core\Security::csrf_token() ?>">
 
                     <div class="form-grid">
                         <div class="form-group">

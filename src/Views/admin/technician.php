@@ -25,7 +25,7 @@
                         <td><span class="badge"><?= e($repair['status']) ?></span></td>
                         <td>
                             <form action="<?= SITE_URL ?>/admin/serwis/status" method="POST" style="display: flex; gap: 10px;">
-                                <input type="hidden" name="csrf_token" value="<?= \App\Core\Security::generate_csrf() ?>">
+                                <input type="hidden" name="csrf_token" value="<?= \App\Core\Security::csrf_token() ?>">
                                 <input type="hidden" name="id" value="<?= $repair['id'] ?>">
                                 <select name="status" class="form-control" style="padding: 5px;">
                                     <option value="Nowe zgłoszenie">Nowe</option>

@@ -40,10 +40,9 @@ class AuthController extends Controller {
 
         $data = [
             'username' => $_POST['username'] ?? '',
-            'first_name' => $_POST['first_name'] ?? '',
-            'last_name' => $_POST['last_name'] ?? '',
+            'full_name' => ($_POST['first_name'] ?? '') . ' ' . ($_POST['last_name'] ?? ''),
             'email' => $_POST['email'] ?? '',
-            'password' => $_POST['password'] ?? '', // Model hashes this
+            'password' => $_POST['password'] ?? '',
             'role' => 'user'
         ];
 
