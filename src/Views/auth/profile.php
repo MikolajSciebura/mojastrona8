@@ -8,6 +8,9 @@
                     <h3>Konto Premium</h3>
                     <ul class="profile-menu">
                         <li><a href="<?= SITE_URL ?>/konto" class="active">Dashboard</a></li>
+                        <?php if ($_SESSION['user_role'] === 'admin'): ?>
+                            <li><a href="<?= SITE_URL ?>/admin" class="text-neon" style="font-weight: bold;">PANEL ADMINA</a></li>
+                        <?php endif; ?>
                         <li><a href="<?= SITE_URL ?>/konto/zamowienia">Moje Zamówienia</a></li>
                         <li><a href="<?= SITE_URL ?>/konto/ustawienia">Ustawienia</a></li>
                         <li><a href="<?= SITE_URL ?>/wyloguj">Wyloguj się</a></li>

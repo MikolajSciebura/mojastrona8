@@ -119,3 +119,7 @@ INSERT INTO products (category_id, name, slug, description, price, stock, is_pc)
 (2, 'MSTech Extreme Gaming R1', 'mstech-extreme-gaming-r1', 'Potężny komputer do gier z RTX 4080', 8999.00, 5, TRUE),
 (3, 'AMD Ryzen 7 7800X3D', 'amd-ryzen-7-7800x3d', 'Najlepszy procesor do gier', 1749.00, 10, FALSE),
 (4, 'NVIDIA GeForce RTX 4070 Ti Super', 'nvidia-rtx-4070-ti-super', 'Wydajna karta graficzna', 3899.00, 8, FALSE);
+
+-- Default Admin Account (Email: admin@mstechpc.pl, Password: admin123)
+INSERT INTO users (username, email, password, first_name, last_name, role) VALUES
+('admin', 'admin@mstechpc.pl', '$2y$10$ahyXo1ul/T9wdT9T9UrTx.GOsOTCF6dgxWYfbkAM4bMZsWpECmv46', 'Główny', 'Admin', 'admin');
