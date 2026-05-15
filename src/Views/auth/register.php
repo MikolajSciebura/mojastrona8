@@ -6,6 +6,10 @@
 
             <form action="<?= SITE_URL ?>/rejestracja" method="POST" class="auth-form">
                 <input type="hidden" name="csrf_token" value="<?= \App\Core\Security::csrf_token() ?>">
+                <div class="form-group">
+                    <label>Nazwa użytkownika</label>
+                    <input type="text" name="username" required placeholder="np. jan_kowalski">
+                </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label>Imię</label>
