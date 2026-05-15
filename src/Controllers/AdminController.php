@@ -1,0 +1,61 @@
+<?php
+
+namespace App\Controllers;
+
+use App\Core\Controller;
+use App\Models\Product;
+use App\Models\User;
+
+class AdminController extends Controller {
+    public function __construct() {
+        if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
+            $this->redirect('/logowanie');
+        }
+    }
+
+    public function dashboard() {
+        $this->view('admin/dashboard', [
+            'title' => 'Panel Administratora - MSTechPC'
+        ]);
+    }
+
+    public function products() {
+        $productModel = new Product();
+        $products = $productModel->all();
+        $this->view('admin/products', [
+            'products' => $products
+        ]);
+    }
+
+    public function productsCreate() {
+        $this->view('admin/products_create', ['title' => 'Dodaj Produkt']);
+    }
+
+    public function productsStore() {
+        if (!\App\Core\Security::verify_csrf($_POST['csrf_token'] ?? '')) die("CSRF Error");
+
+        $productModel = new Product();
+        $productModel->create([
+            'name' => $_POST['name'],
+            'price' => $_POST['price'],
+            'category_id' => $_POST['category_id'],
+            'stock' => $_POST['stock'],
+            'description' => $_POST['description'],
+            'is_pc' => strpos(strtolower($_POST['name']), 'pc') !== false ? 1 : 0
+        ]);
+
+        $this->redirect('/admin/produkty');
+    }
+
+    public function blog() {
+        $this->view('admin/blog_index', ['title' => 'Zarządzanie Blogiem']);
+    }
+
+    public function blogCreate() {
+        $this->view('admin/blog_create', ['title' => 'Dodaj Post']);
+    }
+
+    public function technician() {
+        $this->view('admin/technician', ['title' => 'Panel Serwisanta']);
+    }
+}
