@@ -17,8 +17,12 @@ class Router {
     public function dispatch($method, $uri) {
         $uri = explode('?', $uri)[0];
 
-        // Handle cases where the site is in a subdirectory or being served from public/
-        // If we are using php -S localhost:8000 -t public, the URI should match as is.
+        // Handle subdirectory installations (like XAMPP)
+        $scriptName = dirname($_SERVER['SCRIPT_NAME']);
+        if ($scriptName !== '/') {
+            $uri = str_replace($scriptName, '', $uri);
+        }
+        if ($uri === '') $uri = '/';
 
         foreach ($this->routes as $route) {
             if ($route['method'] === $method && preg_match($route['path'], $uri, $matches)) {
